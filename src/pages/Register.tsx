@@ -83,9 +83,11 @@ const Register = () => {
               </div>
             </div>
             <ShowPassword handleChange={handleChange} />
-            <p className="text-[#04AA00] text-sm cursor-pointer w-fit text-start font-semibold ">
-              Forgot password?
-            </p>
+            <div className="">
+              <a className="text-[#04AA00] text-sm font-semibold">
+                Forgot password?
+              </a>
+            </div>
             <button type="submit" className="w-full mt-4 font-semibold bg-green-600 text-white py-3 hover:cursor-pointer rounded-lg hover:bg-green-700 transition flex ps-3 justify-between items-center">
   Sign Up
   <span className="ml-auto text-end pe-4"><FaArrowRight /></span>
