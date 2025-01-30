@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
 
 export default function LoginPage() {
@@ -55,7 +55,7 @@ export default function LoginPage() {
             </button>
           </form>
           <p className="text-sm text-gray-600 mt-4">
-            Don't have an account? <a href="#" className="text-green-500">Sign Up</a>
+            Don't have an account? <Link to='/signup' className="text-green-500">Sign Up</Link>
           </p>
         </div>
         <div className="w-1/2 bg-black text-white flex flex-col items-center justify-center p-8 text-center">
@@ -68,7 +68,7 @@ export default function LoginPage() {
           <p className="text-sm text-gray-400 mt-2">
             Unlimited traffic, strategic support, and AI-driven upsells
           </p>
-          <a href="#" className="mt-4 text-green-500">Learn More</a>
+          <a className="mt-4 text-green-500">Learn More</a>
         </div>
       </div>
     </div>

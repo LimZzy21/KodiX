@@ -10,9 +10,8 @@ function App() {
   return (
     <>
       <Router>
-        {!(
-          location.pathname === "/login" || location.pathname === "/signup"
-        ) && <Header />}
+        
+         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/post/:id" element={<PostDetails />} />
