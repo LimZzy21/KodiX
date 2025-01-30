@@ -26,6 +26,7 @@ const Register = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     register(formData);
+    alert('Success!')
     navigate("/login");
   };
 

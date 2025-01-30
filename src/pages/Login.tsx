@@ -18,6 +18,7 @@ export default function LoginPage() {
     e.preventDefault();
     const success = login(formData.email, formData.password);
     if (success) {
+      alert('Success!')
       navigate("/");
     } else {
       alert("Invalid email or password");
