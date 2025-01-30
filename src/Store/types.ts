@@ -13,3 +13,13 @@ export interface Post {
     body: string;
   }
   
+
+  export interface PostState {
+    posts: Post[];
+    postDetails: Post | null;
+    comments: Comment[];
+    loading: boolean;
+    error: string | null;
+    fetchPosts: () => Promise<void>;
+    fetchPostDetails: (id: number) => Promise<void>;
+  }

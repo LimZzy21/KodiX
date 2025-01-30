@@ -1,18 +1,14 @@
 import { create } from "zustand";
-import { Post, Comment } from "./types";
+import { Post, Comment, PostState } from "./types";
 
-interface PostState {
-  posts: Post[];
-  postDetails: Post | null;
-  comments: Comment[];
-  fetchPosts: () => Promise<void>;
-  fetchPostDetails: (id: number) => Promise<void>;
-}
+
 
 export const usePostStore = create<PostState>((set) => ({
   posts: [],
   postDetails: null,
   comments: [],
+  loading:false,
+  error:null,
 
   fetchPosts: async () => {
     try {
