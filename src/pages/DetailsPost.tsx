@@ -25,7 +25,6 @@ const PostDetails = () => {
     <div className="relative min-h-screen flex flex-col py-10 px-6 ">
       <BgDecoration />
       <div className="w-full max-w-5xl  grid grid-cols-12 gap-x-36 relative z-10">
-        {/* Ліва колонка */}
         <div className="col-span-7 flex flex-col items-center ">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 text-start whitespace-pre-wrap">
@@ -45,12 +44,10 @@ const PostDetails = () => {
               </div>
             </div>
 
-            {/* Фото */}
             <div className="mt-6 max-w-[700px] min-w-[700px] h-64 bg-gray-200 rounded-3xl flex items-center justify-center text-gray-400 text-lg mx-auto">
               Photo by Artist
             </div>
 
-            {/* Соцмережі */}
             <div className="mt-4 flex space-x-4">
               <p className="text-gray-600">Share to:</p>
               <button className="text-blue-600 text-2xl">
@@ -66,7 +63,6 @@ const PostDetails = () => {
           </div>
         </div>
 
-        {/* Права колонка */}
         <div className="col-span-5 place-content-end">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-semibold text-gray-900 flex items-center">
