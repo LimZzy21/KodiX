@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
 
-const Login = () => {
+export default function LoginPage() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const login = useAuthStore((state) => state.login);
@@ -13,41 +13,66 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (login(formData.email, formData.password)) {
-      navigate("/dashboard");
+    const success = login(formData.email, formData.password);
+    if (success) {
+      navigate("/");
     } else {
-      alert("Invalid credentials!");
+      alert("Invalid email or password");
     }
   };
 
   return (
-    <div className="flex h-screen items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="email"
-            name="email"
-            placeholder="Your email address"
-            className="w-full p-2 border border-gray-300 rounded"
-            required
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter password"
-            className="w-full p-2 border border-gray-300 rounded"
-            required
-            onChange={handleChange}
-          />
-          <button type="submit" className="w-full bg-green-600 text-white py-2 rounded">
-            Sign In
-          </button>
-        </form>
+    <div className="flex justify-center items-center min-h-screen bg-white">
+      <div className="flex shadow-lg rounded-lg overflow-hidden w-[700px] border border-black">
+        {/* Left Side - Login Form */}
+        <div className="w-1/2 p-8 bg-white">
+          <h2 className="text-2xl font-bold mb-6">Sign in</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label className="block text-gray-700">Email address</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Your email address"
+                className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700">Password</label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter password"
+                className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+            </div>
+            <a href="#" className="text-green-500 text-sm">Forgot password?</a>
+            <button type="submit" className="w-full mt-4 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition flex items-center justify-center">
+              Sign In <span className="ml-2">&rarr;</span>
+            </button>
+          </form>
+          <p className="text-sm text-gray-600 mt-4">
+            Don't have an account? <a href="#" className="text-green-500">Sign Up</a>
+          </p>
+        </div>
+        {/* Right Side - Promo */}
+        <div className="w-1/2 bg-black text-white flex flex-col items-center justify-center p-8 text-center">
+          <h2 className="text-xl font-bold flex items-center">
+            Kodix
+            <span className="text-[#1FFF1A] text-xs px-2 py-1 rounded border border-[#1FFF1A] ml-2">
+              PRO
+            </span>
+          </h2>
+          <p className="text-sm text-gray-400 mt-2">
+            Unlimited traffic, strategic support, and AI-driven upsells
+          </p>
+          <a href="#" className="mt-4 text-green-500">Learn More</a>
+        </div>
       </div>
     </div>
   );
-};
-
-export default Login;
+}

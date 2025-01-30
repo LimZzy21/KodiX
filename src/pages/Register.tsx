@@ -3,13 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
 import {
   AiFillDollarCircle,
-  AiFillEye,
-  AiFillEyeInvisible,
 } from "react-icons/ai";
 import { TbServerBolt } from "react-icons/tb";
 import { FaIdCardClip } from "react-icons/fa6";
 import { MdStars } from "react-icons/md";
 import Logo from "../components/RegisterFormLogo";
+import ShowPassword from "../components/ShowPassword";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -18,18 +17,13 @@ const Register = () => {
     lastName: "",
     password: "",
   });
-  const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
-  };
-
-  const navigate = useNavigate();
-  const register = useAuthStore((state) => state.register);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+ 
+  const navigate = useNavigate();
+  const register = useAuthStore((state) => state.register);
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,27 +75,7 @@ const Register = () => {
                 </div>
               </div>
               <label htmlFor="password">Password</label>
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  placeholder="Enter password"
-                  className="w-full p-3 border border-gray-300 rounded pr-10"
-                  required
-                  onChange={handleChange}
-                />
-                <button
-                  type="button"
-                  className="absolute right-3 top-4 text-gray-500"
-                  onClick={togglePasswordVisibility}
-                >
-                  {showPassword ? (
-                    <AiFillEyeInvisible size={20} />
-                  ) : (
-                    <AiFillEye size={20} />
-                  )}
-                </button>
-              </div>
+            <ShowPassword handleChange={handleChange}/>
               <p className="text-[#04AA00] text-sm cursor-pointer font-inter">
                 Forgot password?
               </p>
