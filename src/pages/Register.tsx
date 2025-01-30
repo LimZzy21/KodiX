@@ -46,7 +46,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 placeholder="Your email address"
-                className="w-full p-3 border border-gray-300 rounded"
+                className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
                 onChange={handleChange}
               />
@@ -57,7 +57,7 @@ const Register = () => {
                     type="text"
                     name="firstName"
                     placeholder="Your first name"
-                    className="w-full p-3 border border-gray-300 rounded"
+                    className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     required
                     onChange={handleChange}
                   />
@@ -68,20 +68,19 @@ const Register = () => {
                     type="text"
                     name="lastName"
                     placeholder="Your last name"
-                    className="w-full p-3 border border-gray-300 rounded"
+                    className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     required
                     onChange={handleChange}
                   />
                 </div>
               </div>
-              <label htmlFor="password">Password</label>
             <ShowPassword handleChange={handleChange}/>
-              <p className="text-[#04AA00] text-sm cursor-pointer font-inter">
+              <p className="text-[#04AA00] text-sm cursor-pointer font-inter w-fit">
                 Forgot password?
               </p>
               <button
                 type="submit"
-                className="w-full bg-[#04AA00] text-white py-3 rounded font-semibold"
+                className="w-full bg-[#04AA00] text-white py-3 rounded font-semibold hover:cursor-pointer"
               >
                 Sign In
               </button>

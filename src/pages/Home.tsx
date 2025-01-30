@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [fetchPosts]);
 
   return (
     <div className="relative ">

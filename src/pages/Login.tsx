@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
+import ShowPassword from "../components/ShowPassword";
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -32,25 +33,15 @@ export default function LoginPage() {
               <input
                 type="email"
                 name="email"
-                value={formData.email}
+                
                 onChange={handleChange}
                 placeholder="Your email address"
                 className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Password</label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Enter password"
-                className="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-            </div>
+           <ShowPassword handleChange={handleChange}/>
             <a href="#" className="text-green-500 text-sm">Forgot password?</a>
-            <button type="submit" className="w-full mt-4 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition flex items-center justify-center">
+            <button type="submit" className="w-full mt-4 bg-green-600 hover:cursor-pointer text-white py-2 rounded-lg hover:bg-green-700 transition flex items-center justify-center">
               Sign In <span className="ml-2">&rarr;</span>
             </button>
           </form>
