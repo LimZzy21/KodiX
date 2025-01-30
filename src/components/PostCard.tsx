@@ -10,12 +10,20 @@ interface PostProps {
 
 const PostCard: React.FC<PostProps> = ({ post }) => {
   return (
-      <div className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition">
-        <Link to={`/post/${post.id}`} className="text-blue-500 hover:underline mt-2 block">
-      <h2 className="text-xl font-semibold">{post.title}</h2>
-      <p className="text-gray-600">{post.body.slice(0, 100)}...</p>
-        
+    <div className="rounded-lg p-4 hover:shadow-md transition">
+      <div className="w-full h-32 bg-gray-100 rounded-lg"></div>
+
+      <p className="text-gray-400 text-sm mt-3">WEDNESDAY 12, MARCH 2024</p>
+
+      <Link to={`/post/${post.id}`} className="block mt-2">
+        <h2 className="text-lg font-semibold leading-tight h-12 overflow-hidden text-ellipsis">
+          {post.title}
+        </h2>
       </Link>
+
+      <p className="text-gray-500 text-sm leading-snug mt-1 h-10 overflow-hidden text-ellipsis">
+        {post.body}
+      </p>
     </div>
   );
 };
