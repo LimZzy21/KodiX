@@ -23,3 +23,18 @@ export interface Post {
     fetchPosts: () => Promise<void>;
     fetchPostDetails: (id: number) => Promise<void>;
   }
+
+  export interface User {
+    email: string;
+    firstName?: string;
+    lastName?: string;
+    password: string;
+  }
+  
+  export interface AuthState {
+    user: User | null;
+    isAuthenticated: boolean;
+    register: (userData: User) => void;
+    login: (email: string, password: string) => boolean;
+    logout: () => void;
+  }
