@@ -24,7 +24,6 @@ export default function LoginPage() {
   return (
     <div className="flex justify-center items-center min-h-screen bg-white">
       <div className="flex shadow-lg rounded-lg overflow-hidden w-[700px] border border-black">
-        {/* Left Side - Login Form */}
         <div className="w-1/2 p-8 bg-white">
           <h2 className="text-2xl font-bold mb-6">Sign in</h2>
           <form onSubmit={handleSubmit}>
@@ -59,7 +58,6 @@ export default function LoginPage() {
             Don't have an account? <a href="#" className="text-green-500">Sign Up</a>
           </p>
         </div>
-        {/* Right Side - Promo */}
         <div className="w-1/2 bg-black text-white flex flex-col items-center justify-center p-8 text-center">
           <h2 className="text-xl font-bold flex items-center">
             Kodix

@@ -1,22 +1,31 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { usePostStore } from "../store/usePostStore";
 import BgDecoration from "../components/BackgroundDecoration";
 import PostCard from "../components/PostCard";
 import { FaFacebook, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { useAuthStore } from "../store/useAuthStore";
 
 const PostDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { postDetails, posts, fetchPostDetails, fetchPosts } = usePostStore();
+  const isAuthenticated = useAuthStore((store) => store.isAuthenticated);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    console.log(isAuthenticated);
+
+    if (!isAuthenticated) {
+      navigate("/login");
+      return;
+    }
     if (id) {
       fetchPostDetails(Number(id));
     }
     if (posts.length === 0) {
       fetchPosts();
     }
-  }, [id, fetchPostDetails]);
+  }, [id, fetchPostDetails, isAuthenticated, navigate]);
 
   if (!postDetails)
     return <p className="text-center text-gray-500">Post not found</p>;
@@ -31,8 +40,8 @@ const PostDetails = () => {
               {postDetails.title}
             </h1>
             <p className="text-gray-600 mt-4 max-w-[700px] text-lg break-words  leading-relaxed text-justify">
-  {postDetails.body}
-</p>
+              {postDetails.body}
+            </p>
 
             <div className="flex mt-4 text-gray-500 items-center">
               <p>WEDNESDAY 12, MARCH 2024</p>
