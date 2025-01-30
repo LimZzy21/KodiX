@@ -12,7 +12,7 @@ interface PostProps {
 const PostCard: React.FC<PostProps> = ({ post, horizontal = false }) => {
   return (
     <div
-      className={`p-4 rounded-lg hover:shadow-md transition flex ${
+      className={`p-4  rounded-lg hover:shadow-md transition flex ${
         horizontal ? "items-center gap-4" : "flex-col"
       } w-fit h-fit`}
     >

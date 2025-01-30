@@ -47,18 +47,24 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
       <div className="mt-6 bg-gray-200 h-[339px] w-full rounded-2xl flex ps-4 pb-4 items-end ">
         <p className=" bg-black/40 text-white px-2 rounded">Photo by Antara</p>
       </div>
-      <div className="mt-4 flex space-x-4 text-center justify-center ">
-        <p className="text-gray-600">Share to:</p>
-        <button className="text-blue-600 text-2xl">
-          <FaFacebook />
-        </button>
-        <button className="text-black text-2xl ">
-          <FaXTwitter />
-        </button>
-        <button className="text-red-500 text-2xl">
-          <FaYoutube />
-        </button>
-      </div>
+      <div className="mt-4 flex space-x-4 items-center">
+              <p className="text-gray-600">Share to:</p>
+
+              <button className="relative flex items-center justify-center w-10 h-10">
+                <div className="absolute w-8 h-8 bg-white rounded-full"></div>
+                <FaFacebook className="relative text-blue-600 text-2xl w-8 h-8 " />
+              </button>
+
+              <button className="relative flex items-center justify-center w-10 h-10">
+                <div className="absolute w-8 h-8 bg-black rounded-full"></div>
+                <FaXTwitter className="relative text-white text-2xl" />
+              </button>
+
+              <button className="relative flex items-center justify-center w-10 h-10">
+                <div className="absolute w-8 h-8 bg-[#FF0209] rounded-full"></div>
+                <FaYoutube className="relative text-white text-2xl" />
+              </button>
+            </div>
     </div>
   );
 };
